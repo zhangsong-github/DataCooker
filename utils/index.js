@@ -2,6 +2,10 @@ const Tips = require('./tip');
 const IS = require('is');
 const fs = require('fs');
 const path = require('path');
+const TokenGenerator = require( 'token-generator' )({
+        salt: 'your secret ingredient for this magic recipe',
+        timestampMap: 'abcdefghij', // 10 chars array for obfuscation proposes
+    });
 
 let util = {
     //formatData 必须为 {key,type}的格式,可以不传type
@@ -86,7 +90,7 @@ let util = {
         }
     },
     generateToken(data){
-        return '';
+      return TokenGenerator.generate();
     },
     verifyToken(token){
         let cert = fs.readFileSync(path.join(__dirname, '../config/pub.pem')),res = {};
