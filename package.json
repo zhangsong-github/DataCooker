@@ -21,6 +21,7 @@
     "koa-views": "^5.2.1",
     "koa2-cors": "^2.0.6",
     "mockjs": "^1.0.1-beta3",
+    "mysql": "^2.16.0",
     "pug": "^2.0.0-rc.1"
   },
   "devDependencies": {
