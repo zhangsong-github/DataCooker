@@ -13,7 +13,7 @@ const cors = require('koa2-cors') // 新增部分处理跨域
 //这里需要 const user = require('./routes/user')
 const index = require('./routes/index')
 const users = require('./routes/user')
-const blog = require('./routes/blog')
+const auth = require('./routes/auth')
 
 // error handler
 onerror(app)
@@ -44,7 +44,7 @@ app.use(async (ctx, next) => {
 //这里需要 app.use(user.routes(), user.allowedMethods())
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
-app.use(blog.routes(), blog.allowedMethods())
+app.use(auth.routes(), auth.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
