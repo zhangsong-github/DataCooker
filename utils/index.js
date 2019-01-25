@@ -1,10 +1,7 @@
 const Tips = require('./tip');
 const IS = require('is');
-const php_date = require('locutus/php/datetime/date');
-const strtotime = require('locutus/php/datetime/strtotime');
 const fs = require('fs');
 const path = require('path');
-const jwt = require('jsonwebtoken');
 
 let util = {
     //formatData 必须为 {key,type}的格式,可以不传type
@@ -78,8 +75,7 @@ let util = {
     },
     //创建当前时间
     formatCurrentTime(create_time) {
-        let time = create_time ? strtotime(create_time)*1000 : Date.now();
-        return php_date('Y-m-d H:i:s', time / 1000);
+        return ''
     },
     checkLogin(ctx) {
         let uid = ctx.cookies.get('uid');
@@ -90,13 +86,7 @@ let util = {
         }
     },
     generateToken(data){
-        let created = Math.floor(Date.now() / 1000);
-        let cert = fs.readFileSync(path.join(__dirname, '../config/pri.pem'));
-        let token = jwt.sign({
-            data,
-            exp: created + 3600 * 24
-        }, cert, {algorithm: 'RS256'});
-        return token;
+        return '';
     },
     verifyToken(token){
         let cert = fs.readFileSync(path.join(__dirname, '../config/pub.pem')),res = {};
