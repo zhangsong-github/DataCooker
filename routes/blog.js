@@ -77,54 +77,61 @@ router.delete('/api/blog/:id', async (ctx, next) => {
 
 //分页查询我所有的博客 type:0：我所有的 1 根据笔记本查询
 router.get('/api/blogs', async (ctx, next) => {
-  let content = [
-    {
-      imgUrl: '/static/images/recovery.png',
-      title: '①号佳丽',
-      subtitle: '品牌名称',
-      description: '一段描述一段描述一段描述一段描述一段描述'
-    },
-    {
-      imgUrl: '/static/images/recovery.png',
-      title: '②号佳丽',
-      subtitle: '品牌名称',
-      description: '一段描述一段描述一段描述一段描述一段描述'
-    },
-    {
-      imgUrl: '/static/images/recovery.png',
-      title: '③号佳丽',
-      subtitle: '品牌名称',
-      description: '一段描述一段描述一段描述一段描述一段描述'
-    },
-    {
-      imgUrl: '/static/images/recovery.png',
-      title: '④号佳丽',
-      subtitle: '品牌名称',
-      description: '一段描述一段描述一段描述一段描述一段描述'
-    },
-    {
-      imgUrl: '/static/images/recovery.png',
-      title: '⑤号佳丽',
-      subtitle: '品牌名称',
-      description: '一段描述一段描述一段描述一段描述一段描述'
-    },
-    {
-      imgUrl: '/static/images/recovery.png',
-      title: '⑥号佳丽',
-      subtitle: '品牌名称',
-      description: '一段描述一段描述一段描述一段描述一段描述'
-    }
-  ]
-  return ctx.body = {
-    code: 200,
-    messsage: '请求成功',
-    entity: {
-      content,
-      page: 0,
-      pageSize: 10,
-      total: 100
-    }
-  };
+
+  await new Promise((resolve, reject) => {
+    let content = [
+      {
+        imgUrl: '/static/images/recovery.png',
+        title: '①号佳丽',
+        subtitle: '品牌名称',
+        description: '一段描述一段描述一段描述一段描述一段描述'
+      },
+      {
+        imgUrl: '/static/images/recovery.png',
+        title: '②号佳丽',
+        subtitle: '品牌名称',
+        description: '一段描述一段描述一段描述一段描述一段描述'
+      },
+      {
+        imgUrl: '/static/images/recovery.png',
+        title: '③号佳丽',
+        subtitle: '品牌名称',
+        description: '一段描述一段描述一段描述一段描述一段描述'
+      },
+      {
+        imgUrl: '/static/images/recovery.png',
+        title: '④号佳丽',
+        subtitle: '品牌名称',
+        description: '一段描述一段描述一段描述一段描述一段描述'
+      },
+      {
+        imgUrl: '/static/images/recovery.png',
+        title: '⑤号佳丽',
+        subtitle: '品牌名称',
+        description: '一段描述一段描述一段描述一段描述一段描述'
+      },
+      {
+        imgUrl: '/static/images/recovery.png',
+        title: '⑥号佳丽',
+        subtitle: '品牌名称',
+        description: '一段描述一段描述一段描述一段描述一段描述'
+      }
+    ]
+    setTimeout(() => {
+      ctx.body = {
+        code: 200,
+        messsage: '请求成功',
+        entity: {
+          content,
+          page: 0,
+          pageSize: 10,
+          total: 100
+        }
+      };
+      resolve()
+    }, 1000)
+  })
+
 });
 //查看博客详情
 router.get('/api/blog/:id', async (ctx, next) => {
