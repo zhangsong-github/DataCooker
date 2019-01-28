@@ -2,7 +2,8 @@ const router = require('koa-router')();
 const Utils = require('../utils');
 const Tips = require('../utils/tip');
 const db = require('../db/index');
-const fs = require('fs');
+const Mock = require('mockjs');
+const Random = Mock.Random
 const asyncBusboy = require('async-busboy');
 //创建一篇博客，必须登录
 router.post('/api/blog', async (ctx, next) => {
@@ -79,68 +80,25 @@ router.delete('/api/blog/:id', async (ctx, next) => {
 router.get('/api/blogs', async (ctx, next) => {
 
   await new Promise((resolve, reject) => {
-    let content = [
-      {
-        imgUrl: '/static/images/recovery.png',
-        title: '①号佳丽',
-        subtitle: '品牌名称',
-        description: '高级技师，从业经验5年+'
-      },
-      {
-        imgUrl: '/static/images/recovery.png',
-        title: '②号佳丽',
-        subtitle: '品牌名称',
-        description: '特级技师，从业经验10年+'
-      },
-      {
-        imgUrl: '/static/images/recovery.png',
-        title: '③号佳丽',
-        subtitle: '品牌名称',
-        description: '初级技师，从业经验2年+'
-      },
-      {
-        imgUrl: '/static/images/recovery.png',
-        title: '④号佳丽',
-        subtitle: '品牌名称',
-        description: '中级技师，从业经验5年+'
-      },
-      {
-        imgUrl: '/static/images/recovery.png',
-        title: '⑤号佳丽',
-        subtitle: '品牌名称',
-        description: '高级技师，从业经验10年+'
-      },
-      {
-        imgUrl: '/static/images/recovery.png',
-        title: '⑥号佳丽',
-        subtitle: '品牌名称',
-        description: '高级技师，从业经验10年+'
-      },
-      {
-        imgUrl: '/static/images/recovery.png',
-        title: '⑥号佳丽',
-        subtitle: '品牌名称',
-        description: '高级技师，从业经验10年+'
-      },
-      {
-        imgUrl: '/static/images/recovery.png',
-        title: '⑥号佳丽',
-        subtitle: '品牌名称',
-        description: '高级技师，从业经验10年+'
-      },
-      {
-        imgUrl: '/static/images/recovery.png',
-        title: '⑥号佳丽',
-        subtitle: '品牌名称',
-        description: '高级技师，从业经验10年+'
-      }
-    ]
+    let data = Mock.mock({
+      // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+      'list|1-10': [{
+        // 属性 id 是一个自增数，起始值为 1，每次增 1
+        'id|+1': 1,
+        'name': Random.cname(),
+        'imgUrl': Random.image('250x250'),
+        'title': Random.cparagraph(5),
+        'subtitle': Random.cparagraph(10),
+        'description': Random.cparagraph(30)
+      }]
+    })
+
     setTimeout(() => {
       ctx.body = {
         code: 200,
         messsage: '请求成功',
         entity: {
-          content,
+          content: data.list,
           page: 0,
           pageSize: 10,
           total: 100
