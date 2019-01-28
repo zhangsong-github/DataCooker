@@ -87,9 +87,9 @@ router.get('/api/blogs', async (ctx, next) => {
         'id|+1': 1,
         'name': Random.cname(),
         'imgUrl': Random.image('250x250'),
-        'title': Random.cparagraph(5),
-        'subtitle': Random.cparagraph(10),
-        'description': Random.cparagraph(30)
+        'title': Random.cname(),
+        'subtitle': Random.name(),
+        'description': Random.cparagraph(3)
       }]
     })
 
