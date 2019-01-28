@@ -84,37 +84,55 @@ router.get('/api/blogs', async (ctx, next) => {
         imgUrl: '/static/images/recovery.png',
         title: '①号佳丽',
         subtitle: '品牌名称',
-        description: '一段描述一段描述一段描述一段描述一段描述'
+        description: '高级技师，从业经验5年+'
       },
       {
         imgUrl: '/static/images/recovery.png',
         title: '②号佳丽',
         subtitle: '品牌名称',
-        description: '一段描述一段描述一段描述一段描述一段描述'
+        description: '特级技师，从业经验10年+'
       },
       {
         imgUrl: '/static/images/recovery.png',
         title: '③号佳丽',
         subtitle: '品牌名称',
-        description: '一段描述一段描述一段描述一段描述一段描述'
+        description: '初级技师，从业经验2年+'
       },
       {
         imgUrl: '/static/images/recovery.png',
         title: '④号佳丽',
         subtitle: '品牌名称',
-        description: '一段描述一段描述一段描述一段描述一段描述'
+        description: '中级技师，从业经验5年+'
       },
       {
         imgUrl: '/static/images/recovery.png',
         title: '⑤号佳丽',
         subtitle: '品牌名称',
-        description: '一段描述一段描述一段描述一段描述一段描述'
+        description: '高级技师，从业经验10年+'
       },
       {
         imgUrl: '/static/images/recovery.png',
         title: '⑥号佳丽',
         subtitle: '品牌名称',
-        description: '一段描述一段描述一段描述一段描述一段描述'
+        description: '高级技师，从业经验10年+'
+      },
+      {
+        imgUrl: '/static/images/recovery.png',
+        title: '⑥号佳丽',
+        subtitle: '品牌名称',
+        description: '高级技师，从业经验10年+'
+      },
+      {
+        imgUrl: '/static/images/recovery.png',
+        title: '⑥号佳丽',
+        subtitle: '品牌名称',
+        description: '高级技师，从业经验10年+'
+      },
+      {
+        imgUrl: '/static/images/recovery.png',
+        title: '⑥号佳丽',
+        subtitle: '品牌名称',
+        description: '高级技师，从业经验10年+'
       }
     ]
     setTimeout(() => {
