@@ -86,7 +86,7 @@ router.get('/api/blogs', async (ctx, next) => {
         // 属性 id 是一个自增数，起始值为 1，每次增 1
         'id|+1': 1,
         'name': Random.cname(),
-        'imgUrl': Random.image('250x250'),
+        'imgUrl': Random.image('250x250','#f56a58','#282828',Random.name()),
         'title': Random.cname(),
         'subtitle': Random.name(),
         'description': Random.cparagraph(3)
