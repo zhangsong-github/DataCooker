@@ -96,7 +96,7 @@ router.get('/api/blogs', async (ctx, next) => {
     setTimeout(() => {
       ctx.body = {
         code: 200,
-        messsage: '请求成功',
+        messsage: 'success',
         entity: {
           content: data.list,
           page: 0,
