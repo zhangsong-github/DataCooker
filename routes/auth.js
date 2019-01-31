@@ -33,6 +33,20 @@ router.post('/api/auth', async (ctx, next) => {
 });
 
 //查询登录信息
+router.get('/api/app', async (ctx, next) => {
+    let sql = 'SELECT appid, secret, js_code FROM app_info';
+    await db.query(sql).then(res => {
+        if (res && res.length > 0) {
+            ctx.body = {...Tips[0], entity: res[0]};
+        } else {
+            ctx.body = Tips[1005];
+        }
+    }).catch(e => {
+        ctx.body = Tips[1005];
+    })
+});
+
+//查询登录信息
 router.get('/api/auth', async (ctx, next) => {
     let {uid} = ctx.state  || {};
     let sql = 'SELECT name,uid,nick_name FROM user WHERE uid=? AND is_delete=0', value = [uid];
